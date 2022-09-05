@@ -31,14 +31,20 @@ int main()
 
 void GenerateRandomInputFiles() 
 {
-    // 1000, 4000, 8000, 10000, 40000, 80000, 100000, 400000, 800000, 1000000
-    int rnum, amount=5, first = 0, last = 1000000;
-    int numbers1000[1000]; 
-    
+    int rnum, amount=1000000, first = 0, last = 1000000;
+    int A1000[1000], B4000[4000], C8000[8000], D10000[10000], E40000[40000], F80000[80000], G100000[100000], H400000[400000], I800000[800000], J1000000[1000000];
     srand(time(0));
     for(int i=0; i<amount; i++)
     {
         rnum = rand()%(last+1-first)+first;
-        cout<<endl<<rnum;
+        if(i<1000) 
+        {
+            A1000[i] = rnum;
+        }
+        else 
+        { 
+            cout<<A1000[999];
+            break;
+        }
     }
 }
