@@ -51,9 +51,9 @@ void GenerateRandomInputFiles()
             cout<<A1000[0]<<"--1"<<endl;
             cout<<A1000[1]<<"--2"<<endl;
             cout<<A1000[2]<<"--3"<<endl;
-            cout<<A1000[997]<<"--1"<<endl;
-            cout<<A1000[998]<<"--2"<<endl;
-            cout<<A1000[999]<<"--3"<<endl;
+            cout<<A1000[997]<<"--997"<<endl;
+            cout<<A1000[998]<<"--998"<<endl;
+            cout<<A1000[999]<<"--999"<<endl;
             break;
         }
     }
