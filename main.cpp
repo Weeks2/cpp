@@ -22,6 +22,8 @@ void GenerateRandomInputFiles();
 void GenerateSortedInputFiles();
 void GenerateReverseInputFiles(); 
 
+int A1000[1000], B4000[4000], C8000[8000], D10000[10000], E40000[40000], F80000[80000], G100000[100000], H400000[400000], I800000[800000], J1000000[1000000];
+
 int main()
 {
     GenerateRandomInputFiles();
@@ -31,13 +33,12 @@ int main()
 
 void GenerateRandomInputFiles() 
 {
-    int rnum, amount=1000000, first = 0, last = 1000000;
-    int A1000[1000], B4000[4000], C8000[8000], D10000[10000], E40000[40000], F80000[80000], G100000[100000], H400000[400000], I800000[800000], J1000000[1000000];
+    int randonNumber, first = 0;
     srand(time(0));
-    for(int i=0; i<amount; i++)
+    for(int i = 0; i< 1000000; i++)
     {
-        rnum = rand()%(last+1-first)+first;
-        if(i<1000) 
+        randonNumber = rand()%(1000000+1-first)+first;
+        if(i < 1000) 
         {
             A1000[i] = rnum;
         }
