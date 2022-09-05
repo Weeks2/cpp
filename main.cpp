@@ -35,7 +35,7 @@ void GenerateRandomInputFiles()
     int rnum, amount=5, first = 0, last = 1000000;
     int numbers1000[1000]; 
     
-    srand(time(0));https://www.onlinegdb.com/online_c++_compiler#tab-stdin
+    srand(time(0));
     for(int i=0; i<amount; i++)
     {
         rnum = rand()%(last+1-first)+first;
