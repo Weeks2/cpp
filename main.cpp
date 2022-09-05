@@ -38,23 +38,22 @@ void GenerateRandomInputFiles()
 {
     int randonNumber, first = 0;
     srand(time(0));
+    cout<<"starting"<<endl;
     for(int i = 0; i< 1000000; i++)
     {
         randonNumber = rand()%(1000000+1-first)+first;
-        if(i < 1000) 
-        {
-            A1000[i] = randonNumber;
-        }
-        else 
-        { 
-            sortA1000();
-            cout<<A1000[0]<<"--1"<<endl;
-            cout<<A1000[1]<<"--2"<<endl;
-            cout<<A1000[2]<<"--3"<<endl;
-            cout<<A1000[997]<<"--997"<<endl;
-            cout<<A1000[998]<<"--998"<<endl;
-            cout<<A1000[999]<<"--999"<<endl;
-            break;
-        }
+        if(i < 1000) { A1000[i] = randonNumber;}
+        if(i < 4000) { B4000[i] = randonNumber;}
+        if(i < 8000) { C8000[i] = randonNumber;}
+        if(i < 10000) { D10000[i] = randonNumber;}
+        if(i < 40000) { E40000[i] = randonNumber;}
+        if(i < 80000) { F80000[i] = randonNumber;}
+        if(i < 100000) { G100000[i] = randonNumber;}
+        if(i < 400000) { H400000[i] = randonNumber;}
+        if(i < 800000) { I800000[i] = randonNumber;}
+        if(i < 1000000) { J1000000[i] = randonNumber;}
+        if(i==1000000) {cout<<J1000000[i]<<"end";}
+        cout<<i<<endl;
     }
+    cout<<"fisnihed"<<endl;
 }
