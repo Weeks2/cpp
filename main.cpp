@@ -23,8 +23,7 @@ void GenerateRandomInputFiles()
 {
     int randonNumber, first = 0;
     srand(time(0));
-    cout<<"starting"<<endl;
-    for(int i = 0; i< 1000000; i++)
+    for(int i = 0; i < 1000000; i++)
     {
         randonNumber = rand()%(1000000+1-first)+first;
         if(i < 1000) { A1000[i] = randonNumber;}
@@ -37,10 +36,9 @@ void GenerateRandomInputFiles()
         if(i < 400000) { H400000[i] = randonNumber;}
         if(i < 800000) { I800000[i] = randonNumber;}
         if(i < 1000000) { J1000000[i] = randonNumber;}
-        if(i==1000000) {cout<<J1000000[i]<<"end";}
-        cout<<i<<endl;
+        if(i==1000000-1) {cout<<"STARTED:"<<J1000000[0]<<", FINISHED:"<<J1000000[i]<<endl;}
+        cout<<randonNumber<<endl;
     }
-    cout<<"fisnihed"<<endl;
 }
 
 void GenerateSortedInputFiles() 
