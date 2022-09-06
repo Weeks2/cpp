@@ -39,27 +39,12 @@ void GenerateRandomInputFiles()
         if(i < 800000) { I800000[i] = randonNumber;}
         if(i < 1000000) { J1000000[i] = randonNumber;}
         if(i==1000000-1) {cout<<"STARTED:"<<J1000000[0]<<", FINISHED:"<<J1000000[i]<<endl;}       
-    }
+     }
 }
 
-void GenerateSortedInputFiles() 
-{
- int temp;
- for(int i = 0; i< 1000; i++) 
- {
-   for(int j = i+1; j<1000; j++)
-   {
-      if(A1000[j] < A1000[i]) 
-      {
-         temp = A1000[i];
-         A1000[i] = A1000[j];
-         A1000[j] = temp;
-      }
-    }    
-  }
-}
-
+void GenerateSortedInputFiles() {}
 void GenerateReverseInputFiles() {}
+
 void bubbleSort(int arraySize[], int len)
 {
  int temp;
