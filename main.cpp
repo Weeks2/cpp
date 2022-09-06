@@ -4,6 +4,7 @@
 #include <fstream>
 using namespace std;
 
+void bubbleSort(int *arraySize, int len);
 void GenerateRandomInputFiles();
 void GenerateSortedInputFiles();
 void GenerateReverseInputFiles(); 
@@ -37,8 +38,7 @@ void GenerateRandomInputFiles()
         if(i < 400000) { H400000[i] = randonNumber;}
         if(i < 800000) { I800000[i] = randonNumber;}
         if(i < 1000000) { J1000000[i] = randonNumber;}
-        if(i==1000000-1) {cout<<"STARTED:"<<J1000000[0]<<", FINISHED:"<<J1000000[i]<<endl;}
-        
+        if(i==1000000-1) {cout<<"STARTED:"<<J1000000[0]<<", FINISHED:"<<J1000000[i]<<endl;}       
     }
 }
 
@@ -60,3 +60,19 @@ void GenerateSortedInputFiles()
 }
 
 void GenerateReverseInputFiles() {}
+void bubbleSort(int arraySize[], int len)
+{
+ int temp;
+ for(int i = 0; i< len; i++)
+ {
+   for(int j = i+1; j<len; j++)
+   {
+      if(arraySize[j] < arraySize[i])
+      {
+         temp = arraySize[i];
+         arraySize[i] = arraySize[j];
+         arraySize[j] = temp;
+      }
+    }
+  }
+}
