@@ -6,14 +6,9 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
-using namespace std;
-/**
-1000Sorted file tendrá de 0 a 999,
 
- writeFile("1000Sorted",);
-1000Reverse.txt tendrá de 999 a 0 y
-1000Random.txt tendrá números aleatorios entre 0 y 1,000,000.
-**/
+using namespace std;
+
 int NUM_MAX = 1000000;
 int A1000[1000], B4000[4000], C8000[8000], D10000[10000],E40000[40000], F80000[80000], G100000[100000],H400000[400000], I800000[800000], J1000000[1000000];
 
@@ -69,7 +64,7 @@ void GenerateRandomInputFiles()
         if(i < NUM_MAX) { J1000000[i] = randonNumber;}
         if(i==NUM_MAX-1) {cout<<"STARTED:"<<J1000000[0]<<", FINISHED:"<<J1000000[i]<<endl;}
 
-        //writeArrays("Random_TEST");
+        //writeArrays("Random");
     }
 }
 void GenerateSortedInputFiles()
@@ -84,6 +79,7 @@ void GenerateSortedInputFiles()
      bubbleSort(H400000,400000);
      bubbleSort(I800000,800000);
      bubbleSort(J1000000,1000000);
+    //writeArrays("Sorted");
 }
 void GenerateReverseInputFiles()
 {
@@ -97,6 +93,7 @@ void GenerateReverseInputFiles()
     reverse(H400000,400000);
     reverse(I800000,800000);
     reverse(J1000000,1000000);
+    //writeArrays("Reverse");
 }
 
 
@@ -188,3 +185,4 @@ void writeArrays(string flag)
     writeFile("800000"+flag,I800000,800000);
     writeFile("1000000"+flag,J1000000,1000000);
 }
+
