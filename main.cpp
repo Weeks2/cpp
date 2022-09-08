@@ -26,26 +26,15 @@ void GenerateRandomInputFiles();
 void GenerateSortedInputFiles();
 void GenerateReverseInputFiles();
 
+void test();
+void testAll();
+
 int main()
 {
     GenerateRandomInputFiles();
     GenerateSortedInputFiles();
     GenerateReverseInputFiles();
     return 0;
-}
-
-/**
-  https://www.onlinegdb.com/online_c++_compiler
-  https://www.codeblocks.org/downloads/binaries/
-**/
-
-void test()
-{
-  writeFile("1000Random",A1000,1000);
-  reverse(A1000,1000);
-  writeFile("1000Reverse",A1000,1000);
-  bubbleSort(A1000,1000);
-  writeFile("1000Sorted",A1000,1000);
 }
 
 void GenerateRandomInputFiles()
@@ -187,4 +176,25 @@ void writeArrays(string flag)
     writeFile("400000"+flag,H400000,400000);
     writeFile("800000"+flag,I800000,800000);
     writeFile("1000000"+flag,J1000000,1000000);
+}
+
+/**
+  https://www.onlinegdb.com/online_c++_compiler
+  https://www.codeblocks.org/downloads/binaries/
+**/
+
+void test()
+{
+  writeFile("1000Random",A1000,1000);
+  reverse(A1000,1000);
+  writeFile("1000Reverse",A1000,1000);
+  bubbleSort(A1000,1000);
+  writeFile("1000Sorted",A1000,1000);
+}
+
+void testAll()
+{
+  writeArrays("Random");
+  writeArrays("Sorted");
+  writeArrays("Reverse");
 }
