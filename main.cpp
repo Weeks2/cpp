@@ -16,11 +16,8 @@ void writeFile(string flag,int *ar, int length);
 void writeArrays(string flag);
 void printArray(string flag,int *ar, int length);
 
-void reverse(int *arr, int lenght);
-int partition(int *ar, int l, int r);
-
-void quickSort(int *ar, int low, int high);
 void bubbleSort(int *ar, int length);
+void reverse(int *arr, int lenght);
 
 void GenerateRandomInputFiles();
 void GenerateSortedInputFiles();
@@ -46,7 +43,7 @@ void GenerateRandomInputFiles()
         randonNumber = rand()%(NUM_MAX+1-first)+first;
         cout<<"GENERATING:"<<randonNumber<<endl;
         if(i < 1000) { A1000[i] = randonNumber;}
-        if(i < 4000) { B4000[i] = randonNumber;}
+        if(i < 4000) { B4000[i] = randonNumber;} else { test(); break;} // DELETE
         if(i < 8000) { C8000[i] = randonNumber;}
         if(i < 10000) { D10000[i] = randonNumber;}
         if(i < 40000) { E40000[i] = randonNumber;}
@@ -59,6 +56,7 @@ void GenerateRandomInputFiles()
         //writeArrays("Random");
     }
 }
+
 void GenerateSortedInputFiles()
 {
      bubbleSort(A1000,1000);
@@ -73,6 +71,7 @@ void GenerateSortedInputFiles()
      bubbleSort(J1000000,1000000);
     //writeArrays("Sorted");
 }
+
 void GenerateReverseInputFiles()
 {
     reverse(A1000,1000);
@@ -87,7 +86,6 @@ void GenerateReverseInputFiles()
     reverse(J1000000,1000000);
     //writeArrays("Reverse");
 }
-
 
 void bubbleSort(int *ar,int length)
 {
@@ -104,39 +102,6 @@ void bubbleSort(int *ar,int length)
       }
     }
   }
-}
-
-/**
-   quickSort(ar, 0, length - 1);
-**/
-void quickSort(int *ar, int low, int high)
-{
-    if (low < high)
-    {
-        int p = partition(ar, low, high);
-        quickSort(ar, 0, p - 1);
-        quickSort(ar, p + 1, high);
-    }
-}
-
-int partition(int *ar, int l, int r)
-{
-    int pivot = ar[r];
-    int i = l;
-    for (int j = l; j < r; j++)
-    {
-        if (ar[j] <= pivot)
-        {
-            int t = ar[j];
-            ar[j] = ar[i];
-            ar[i] = t;
-            i++;
-        }
-    }
-    int t = ar[i];
-    ar[i] = ar[r];
-    ar[r] = t;
-    return i;
 }
 
 void reverse(int *arr, int lenght)
