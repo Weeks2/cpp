@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+
 using namespace std;
 
 int NUM_MAX = 1000000;
@@ -126,7 +127,6 @@ void quickSort(int *ar, int low, int high)
         int p = partition(ar, low, high);
         quickSort(ar, 0, p - 1);
         quickSort(ar, p + 1, high);
-        cout<<"QUICKSORT PARTITION:"<<p<<endl;
     }
 }
 
@@ -188,3 +188,4 @@ void writeArrays(string flag)
     writeFile("800000"+flag,I800000,800000);
     writeFile("1000000"+flag,J1000000,1000000);
 }
+
