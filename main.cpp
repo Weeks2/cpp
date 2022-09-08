@@ -20,6 +20,7 @@ int A1000[1000], B4000[4000], C8000[8000], D10000[10000],E40000[40000], F80000[8
 void writeFile(string flag,int *ar, int length);
 void reverse(int *arr, int lenght);
 int partition(int *ar, int l, int r);
+void writeArrays(string flag);
 
 void quickSort(int *ar, int low, int high);
 void bubbleSort(int *ar, int length);
@@ -33,11 +34,20 @@ void GenerateReverseInputFiles();
 int main()
 {
     GenerateRandomInputFiles();
-    //printArray("A1000:",A1000,1000);
-   // GenerateSortedInputFiles();
-    //GenerateReverseInputFiles();
+    GenerateSortedInputFiles();
+    GenerateReverseInputFiles();
     return 0;
 }
+
+void test()
+{
+  writeFile("1000Random",A1000,1000);
+  reverse(A1000,1000);
+  writeFile("1000Reverse",A1000,1000);
+  bubbleSort(A1000,1000);
+  writeFile("1000Sorted",A1000,1000);
+}
+
 void GenerateRandomInputFiles()
 {
     int randonNumber, first = 0;
@@ -47,44 +57,25 @@ void GenerateRandomInputFiles()
         randonNumber = rand()%(NUM_MAX+1-first)+first;
         cout<<"GENERATING:"<<randonNumber<<endl;
         if(i < 1000) { A1000[i] = randonNumber;}
-        if(i < 4000) { B4000[i] = randonNumber;}
-        /**
-        if(i < 8000) { C8000[i] = randonNumber;}
+        if(i < 4000) { B4000[i] = randonNumber;} else { test();  break;} // DELETE ELSE TO CONTINUE OTHER CODE
 
+        if(i < 8000) { C8000[i] = randonNumber;}
         if(i < 10000) { D10000[i] = randonNumber;}
         if(i < 40000) { E40000[i] = randonNumber;}
         if(i < 80000) { F80000[i] = randonNumber;}
-
         if(i < 100000) { G100000[i] = randonNumber;}
         if(i < 400000) { H400000[i] = randonNumber;}
         if(i < 800000) { I800000[i] = randonNumber;}
         if(i < NUM_MAX) { J1000000[i] = randonNumber;}
         if(i==NUM_MAX-1) {cout<<"STARTED:"<<J1000000[0]<<", FINISHED:"<<J1000000[i]<<endl;}
-        **/
+
+        //writeArrays("Random_TEST");
     }
-    cout<<"PRINT SEGMENT 1000-8000"<<endl;
-    writeFile("1000Random",A1000,1000);
-    writeFile("4000Random",B4000,4000);
-    writeFile("8000Random",C8000,8000);
-    cout<<"PRINT SEGMENT 10000-80000"<<endl;
-    writeFile("10000Random",D10000,10000);
-    writeFile("40000Random",E40000,40000);
-    writeFile("80000Random",F80000,80000);
-    cout<<"PRINT SEGMENT 100000-800000"<<endl;
-    writeFile("100000Random",G100000,100000);
-    writeFile("400000Random",H400000,400000);
-    writeFile("800000Random",I800000,800000);
-    cout<<"PRINT 1000000"<<endl;
-    writeFile("1000000Random",J1000000,1000000);
-
-
-
 }
 void GenerateSortedInputFiles()
 {
      bubbleSort(A1000,1000);
      bubbleSort(B4000,4000);
-     /**
      bubbleSort(C8000,8000);
      bubbleSort(D10000,10000);
      bubbleSort(E40000,40000);
@@ -93,12 +84,10 @@ void GenerateSortedInputFiles()
      bubbleSort(H400000,400000);
      bubbleSort(I800000,800000);
      bubbleSort(J1000000,1000000);
-     **/
 }
 void GenerateReverseInputFiles()
 {
     reverse(A1000,1000);
-    /**
     reverse(B4000,4000);
     reverse(C8000,8000);
     reverse(D10000,10000);
@@ -108,7 +97,6 @@ void GenerateReverseInputFiles()
     reverse(H400000,400000);
     reverse(I800000,800000);
     reverse(J1000000,1000000);
-    **/
 }
 
 
@@ -185,4 +173,18 @@ void writeFile(string flag,int *ar, int length)
         fout << ar[i] << (i < length-1 ? ",":"");
     }
     cout<<"FINAL:"<<ar[length-1];
+}
+
+void writeArrays(string flag)
+{
+    writeFile("1000"+flag,A1000,1000);
+    writeFile("4000"+flag,B4000,4000);
+    writeFile("8000"+flag,C8000,8000);
+    writeFile("10000"+flag,D10000,10000);
+    writeFile("40000"+flag,E40000,40000);
+    writeFile("80000"+flag,F80000,80000);
+    writeFile("100000"+flag,G100000,100000);
+    writeFile("400000"+flag,H400000,400000);
+    writeFile("800000"+flag,I800000,800000);
+    writeFile("1000000"+flag,J1000000,1000000);
 }
