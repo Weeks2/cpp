@@ -11,6 +11,7 @@ using namespace std;
 int NUM_MAX = 1000000;
 int A1000[1000], B4000[4000], C8000[8000], D10000[10000],E40000[40000], F80000[80000], G100000[100000],H400000[400000], I800000[800000], J1000000[1000000];
 
+void writeFile(string flag,int *ar, int length);
 void reverse(int *arr, int lenght);
 int partition(int *ar, int l, int r);
 
@@ -148,4 +149,16 @@ void printArray(string flag, int *ar, int length)
     {
        cout<<flag<<ar[i]<<endl;
     }
+}
+
+void writeFile(string flag,int *ar, int length)
+{
+    fstream fout;
+    fout.open(flag+".csv", ios::out | ios::app);
+
+    for (int i = 0; i < length; i++)
+    {
+        fout << ar[i] << (i < length-1 ? ",":"");
+    }
+    cout<<"FINAL:"<<ar[length-1];
 }
