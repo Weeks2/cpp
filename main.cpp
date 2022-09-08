@@ -14,13 +14,13 @@ int A1000[1000], B4000[4000], C8000[8000], D10000[10000],E40000[40000], F80000[8
 
 void writeFile(string flag,int *ar, int length);
 void writeArrays(string flag);
+void printArray(string flag,int *ar, int length);
 
 void reverse(int *arr, int lenght);
 int partition(int *ar, int l, int r);
 
 void quickSort(int *ar, int low, int high);
 void bubbleSort(int *ar, int length);
-void printArray(string flag,int *ar, int length);
 
 void GenerateRandomInputFiles();
 void GenerateSortedInputFiles();
@@ -57,7 +57,7 @@ void GenerateRandomInputFiles()
         randonNumber = rand()%(NUM_MAX+1-first)+first;
         cout<<"GENERATING:"<<randonNumber<<endl;
         if(i < 1000) { A1000[i] = randonNumber;}
-        if(i < 4000) { B4000[i] = randonNumber;} else { test();  break;} // DELETE ELSE TO CONTINUE OTHER CODE
+        if(i < 4000) { B4000[i] = randonNumber;}
         if(i < 8000) { C8000[i] = randonNumber;}
         if(i < 10000) { D10000[i] = randonNumber;}
         if(i < 40000) { E40000[i] = randonNumber;}
