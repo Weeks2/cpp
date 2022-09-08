@@ -151,10 +151,10 @@ void writeArrays(string flag)
 void test()
 {
   writeFile("1000Random",A1000,1000);
-  reverse(A1000,1000);
-  writeFile("1000Reverse",A1000,1000);
   bubbleSort(A1000,1000);
   writeFile("1000Sorted",A1000,1000);
+  reverse(A1000,1000);
+  writeFile("1000Reverse",A1000,1000);
 }
 
 void testAll()
