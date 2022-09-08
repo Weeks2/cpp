@@ -13,9 +13,10 @@ int NUM_MAX = 1000000;
 int A1000[1000], B4000[4000], C8000[8000], D10000[10000],E40000[40000], F80000[80000], G100000[100000],H400000[400000], I800000[800000], J1000000[1000000];
 
 void writeFile(string flag,int *ar, int length);
+void writeArrays(string flag);
+
 void reverse(int *arr, int lenght);
 int partition(int *ar, int l, int r);
-void writeArrays(string flag);
 
 void quickSort(int *ar, int low, int high);
 void bubbleSort(int *ar, int length);
@@ -24,7 +25,6 @@ void printArray(string flag,int *ar, int length);
 void GenerateRandomInputFiles();
 void GenerateSortedInputFiles();
 void GenerateReverseInputFiles();
-
 
 int main()
 {
@@ -188,4 +188,3 @@ void writeArrays(string flag)
     writeFile("800000"+flag,I800000,800000);
     writeFile("1000000"+flag,J1000000,1000000);
 }
-
