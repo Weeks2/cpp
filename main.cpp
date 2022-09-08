@@ -14,6 +14,7 @@ int A1000[1000], B4000[4000], C8000[8000], D10000[10000],E40000[40000], F80000[8
 
 void writeFile(string flag,int *ar, int length);
 void writeArrays(string flag);
+void readArray(string filename, int *ar, int length);
 void printArray(string flag,int *ar, int length);
 
 void bubbleSort(int *ar, int length);
@@ -142,7 +143,24 @@ void writeArrays(string flag)
     writeFile("1000000"+flag,J1000000,1000000);
 }
 
+void readArray(string filename, int *ar, int length) 
+{
+  fstream newfile;
+   newfile.open(filename+".csv", ios::in); 
+   string numberString;
+   int i = 0;
+   if (newfile.is_open())
+   {
+      while(getline(newfile, numberString,','))
+      { 
+         ar[i] = stoi(numberString);
+      }
+      newfile.close();
+   }
+}
+
 /**
+  g++ main.cpp -o main
   https://www.onlinegdb.com/online_c++_compiler
   https://www.codeblocks.org/downloads/binaries/
 **/
