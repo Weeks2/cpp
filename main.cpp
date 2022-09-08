@@ -42,8 +42,8 @@ void GenerateRandomInputFiles()
     {
         randonNumber = rand()%(NUM_MAX+1-first)+first;
         cout<<"GENERATING:"<<randonNumber<<endl;
-        if(i < 1000) { A1000[i] = randonNumber;}
-        if(i < 4000) { B4000[i] = randonNumber;} else { test(); break;} // DELETE
+        if(i < 1000) { A1000[i] = randonNumber;} else { test(); break;} // DELETE
+        if(i < 4000) { B4000[i] = randonNumber;}
         if(i < 8000) { C8000[i] = randonNumber;}
         if(i < 10000) { D10000[i] = randonNumber;}
         if(i < 40000) { E40000[i] = randonNumber;}
@@ -126,7 +126,6 @@ void writeFile(string flag,int *ar, int length)
     {
         fout << ar[i] << (i < length-1 ? ",":"");
     }
-    cout<<"FINAL:"<<ar[length-1];
 }
 
 void writeArrays(string flag)
@@ -150,11 +149,19 @@ void writeArrays(string flag)
 
 void test()
 {
-  writeFile("1000Random",A1000,1000);
-  bubbleSort(A1000,1000);
-  writeFile("1000Sorted",A1000,1000);
-  reverse(A1000,1000);
-  writeFile("1000Reverse",A1000,1000);
+  string prefix = "1000";
+  int length = 1000;
+  cout<<endl<<"REPORT "<<endl;
+  writeFile(prefix+"Random",A1000,length);
+  cout<<"Random[0]:"<<A1000[0]<<endl;
+
+  bubbleSort(A1000,length);
+  writeFile(prefix+"Sorted",A1000,length);
+  cout<<"Sorted[0]:"<<A1000[0]<<" Sorted[LAST]:"<<A1000[length-1]<<endl;
+
+  reverse(A1000,length);
+  writeFile(prefix+"Reverse",A1000,length);
+  cout<<"Reverse[0]:"<<A1000[0]<<endl;
 }
 
 void testAll()
