@@ -6,7 +6,6 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
-
 using namespace std;
 
 int NUM_MAX = 1000000;
@@ -33,6 +32,11 @@ int main()
     GenerateReverseInputFiles();
     return 0;
 }
+
+/**
+  https://www.onlinegdb.com/online_c++_compiler
+  https://www.codeblocks.org/downloads/binaries/
+**/
 
 void test()
 {
@@ -185,4 +189,3 @@ void writeArrays(string flag)
     writeFile("800000"+flag,I800000,800000);
     writeFile("1000000"+flag,J1000000,1000000);
 }
-
