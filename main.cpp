@@ -1,17 +1,21 @@
-#include<iostream>
-#include<stdlib.h>
-#include<time.h>
+#include <iostream>
+#include <stdlib.h>
+#include <time.h>
 #include <vector>
 #include <string>
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <stdio.h>
+#include <cstring>
 
 using namespace std;
 
 int NUM_MAX = 1000000;
 int A1000[1000], B4000[4000], C8000[8000], D10000[10000],E40000[40000], F80000[80000], G100000[100000],H400000[400000], I800000[800000], J1000000[1000000];
+int T20[20];
 
+void removeFile(string filename);
 void writeFile(string flag,int *ar, int length);
 void writeArrays(string flag);
 void readArray(string filename, int *ar, int length);
@@ -24,7 +28,7 @@ void GenerateRandomInputFiles();
 void GenerateSortedInputFiles();
 void GenerateReverseInputFiles();
 
-void test();
+void test(int *ar, int length);
 void testAll();
 
 int main()
@@ -43,7 +47,8 @@ void GenerateRandomInputFiles()
     {
         randonNumber = rand()%(NUM_MAX+1-first)+first;
         cout<<"GENERATING:"<<randonNumber<<endl;
-        if(i < 1000) { A1000[i] = randonNumber;} else { test(); break;} // DELETE
+        if(i < 20) { T20[i] = randonNumber;} else { test(T20,20); break;} // DELETE
+        if(i < 1000) { A1000[i] = randonNumber;}
         if(i < 4000) { B4000[i] = randonNumber;}
         if(i < 8000) { C8000[i] = randonNumber;}
         if(i < 10000) { D10000[i] = randonNumber;}
@@ -143,20 +148,39 @@ void writeArrays(string flag)
     writeFile("1000000"+flag,J1000000,1000000);
 }
 
-void readArray(string filename, int *ar, int length) 
+void readArray(string filename, int *ar, int length)
 {
-  fstream newfile;
-   newfile.open(filename+".csv", ios::in); 
-   string numberString;
-   int i = 0;
-   if (newfile.is_open())
-   {
+    fstream newfile;
+    newfile.open(filename+".csv", ios::in);
+    string numberString;
+    int i = 0;
+    if (newfile.is_open())
+    {
       while(getline(newfile, numberString,','))
-      { 
+      {
          ar[i] = stoi(numberString);
       }
       newfile.close();
-   }
+    }
+}
+
+void removeFile(string filename)
+{
+    string filename_ = filename + ".csv";
+    int n = filename_.length();
+    char letters[n + 1];
+    strcpy(letters,filename_.c_str());
+
+    if(remove(letters) != 0 )
+    {
+     //cout<<"!DELETED "<<filename<<endl;
+     //perror( "Error deleting file" );
+    }
+    else
+    {
+     cout<<"DELETED "<<filename_<<endl;
+     //puts( "File successfully deleted" );
+    }
 }
 
 /**
@@ -165,21 +189,29 @@ void readArray(string filename, int *ar, int length)
   https://www.codeblocks.org/downloads/binaries/
 **/
 
-void test()
+void test(int *ar, int length)
 {
-  string prefix = "1000";
-  int length = 1000;
+
+  string prefix = to_string(length);
+  string random = prefix + "Random";
+  string sorted = prefix + "Sorted";
+  string reversed = prefix +"Reverse";
+
+  removeFile(random);
+  removeFile(sorted);
+  removeFile(reversed);
+
   cout<<endl<<"REPORT "<<endl;
-  writeFile(prefix+"Random",A1000,length);
-  cout<<"Random[0]:"<<A1000[0]<<endl;
+  writeFile(random,ar,length);
+  cout<<"Random[0]:"<<ar[0]<<endl;
 
-  bubbleSort(A1000,length);
-  writeFile(prefix+"Sorted",A1000,length);
-  cout<<"Sorted[0]:"<<A1000[0]<<" Sorted[LAST]:"<<A1000[length-1]<<endl;
+  bubbleSort(ar,length);
+  writeFile(sorted,ar,length);
+  cout<<"Sorted[0]:"<<ar[0]<<" Sorted[LAST]:"<<ar[length-1]<<endl;
 
-  reverse(A1000,length);
-  writeFile(prefix+"Reverse",A1000,length);
-  cout<<"Reverse[0]:"<<A1000[0]<<endl;
+  reverse(ar,length);
+  writeFile(reversed,ar,length);
+  cout<<"Reverse[0]:"<<ar[0]<<endl;
 }
 
 void testAll()
