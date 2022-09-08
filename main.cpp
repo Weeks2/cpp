@@ -57,7 +57,6 @@ void GenerateRandomInputFiles()
         cout<<"GENERATING:"<<randonNumber<<endl;
         if(i < 1000) { A1000[i] = randonNumber;}
         if(i < 4000) { B4000[i] = randonNumber;} else { test();  break;} // DELETE ELSE TO CONTINUE OTHER CODE
-
         if(i < 8000) { C8000[i] = randonNumber;}
         if(i < 10000) { D10000[i] = randonNumber;}
         if(i < 40000) { E40000[i] = randonNumber;}
@@ -67,7 +66,6 @@ void GenerateRandomInputFiles()
         if(i < 800000) { I800000[i] = randonNumber;}
         if(i < NUM_MAX) { J1000000[i] = randonNumber;}
         if(i==NUM_MAX-1) {cout<<"STARTED:"<<J1000000[0]<<", FINISHED:"<<J1000000[i]<<endl;}
-
         //writeArrays("Random");
     }
 }
@@ -113,15 +111,16 @@ void bubbleSort(int *ar,int length)
          temp = ar[i];
          ar[i] = ar[j];
          ar[j] = temp;
-         //cout<<"bubbleSort:"<<temp<<endl;
       }
     }
   }
 }
 
+/**
+   quickSort(ar, 0, length - 1);
+**/
 void quickSort(int *ar, int low, int high)
 {
-    //quickSort(ar, 0, length - 1);
     if (low < high)
     {
         int p = partition(ar, low, high);
