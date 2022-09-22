@@ -49,6 +49,19 @@ int main()
     return 0;
 }
 
+void sortArray(string file, string method, int *ar, int length)
+{
+    auto start = chrono::steady_clock::now();
+    readArray(file,ar,length);
+    
+    if(method=="bubblesort").  { bubbleSort_opt(ar, length); }
+    if(method=="quicksort").   { quickSort(ar, 0, length - 1); }
+    if(method=="insertionsort") { insertionSort(ar, length); }
+    
+    auto end = chrono::steady_clock::now();
+    writeDataSetLine(file + "_time_" + method, chrono::duration_cast<chrono::milliseconds>(end - start).count(), length);
+}
+
 void orderArrayBubbleSort(string file, int *ar, int length)
 {
     auto start = chrono::steady_clock::now();
