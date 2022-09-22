@@ -32,7 +32,6 @@ int main()
     displayDataSet("A1000_time_quicksort");
     displayDataSet("A1000_time_insertionsort");
 
-
     return 0;
 }
 
