@@ -19,6 +19,7 @@ void displayDataSet(string file);
 
 int main()
 {
+    cout<<"V1.0"<<"-----------------"<<endl;
     generateArray("A1000",A1000,1000);
     orderArrayBubbleSort("A1000",A1000,1000);
     orderArrayQuickSort("A1000",A1000,1000);
@@ -90,7 +91,7 @@ void generateArray(string file, int *ar, int length)
 
 void displayDataSet(string file)
 {
-    cout<<"Printing dataset";
+    cout<<"Printing dataset"<<endl;
     fstream newfile;
     newfile.open(file+".csv", ios::in);
     string numberString;
