@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <cstring>
 
+int MAX_NUMBERS = 10000;
 void fillArray(int *ar, int length);
 void readArray(string filename, int *ar, int length);
 void printArray(string flag,int *ar, int length);
@@ -21,12 +22,12 @@ void writeFile(string flag,int *ar, int length);
 
 void fillArray(int *ar, int length)
 {
-    cout<<"GERETING NUMBERS:"<<length;
+    cout<<"GERETING NUMBERS: "<<length<<endl;
     int randonNumber, first = 0;
     srand(time(0));
     for (int i = 0; i < length; i++)
     {
-        randonNumber = rand()%(1000000+1-first)+first;
+        randonNumber = rand()%(MAX_NUMBERS+1-first)+first;
         ar[i] = randonNumber;
 
     }
@@ -84,6 +85,14 @@ void writeFile(string flag,int *ar, int length)
     {
         fout << ar[i] << (i < length-1 ? ",":"");
     }
+}
+
+void writeDataSetLine(string flag, float elapsed, int numbers)
+{
+    fstream fout;
+    fout.open(flag+".csv", ios::out | ios::app);
+    fout << elapsed <<","<<numbers<<"\n";
+
 }
 
 #endif // UTILSSORT_H_INCLUDED
