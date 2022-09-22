@@ -15,32 +15,35 @@ void generateArray(string file,int *ar, int length);
 void orderArrayBubbleSort(string file,int *ar, int length);
 void orderArrayQuickSort(string file,int *ar, int length);
 void orderArrayInsertionSort(string file,int *ar, int length);
-
+void displayDataSet(string file);
 
 int main()
 {
     generateArray("A1000",A1000,1000);
-    generateArray("B4000",B4000,4000);
-    generateArray("C8000",C8000,8000);
-    generateArray("D10000",D10000,10000);
 
     orderArrayBubbleSort("A1000",A1000,1000);
-    orderArrayBubbleSort("B4000",B4000,4000);
-    orderArrayBubbleSort("C8000",C8000,8000);
-    orderArrayBubbleSort("D10000",D10000,10000);
-
-
     orderArrayQuickSort("A1000",A1000,1000);
-    orderArrayQuickSort("B4000",B4000,4000);
-    orderArrayQuickSort("C8000",C8000,8000);
-    orderArrayQuickSort("D10000",D10000,10000);
-
-
     orderArrayInsertionSort("A1000",A1000,1000);
+
+    generateArray("B4000",B4000,4000);
+
+    orderArrayBubbleSort("B4000",B4000,4000);
     orderArrayInsertionSort("B4000",B4000,4000);
+    orderArrayQuickSort("B4000",B4000,4000);
+
+
+    generateArray("C8000",C8000,8000);
+    orderArrayBubbleSort("C8000",C8000,8000);
     orderArrayInsertionSort("C8000",C8000,8000);
+    orderArrayQuickSort("C8000",C8000,8000);
+
+
+    generateArray("D10000",D10000,10000);
+    orderArrayBubbleSort("D10000",D10000,10000);
+    orderArrayQuickSort("D10000",D10000,10000);
     orderArrayInsertionSort("D10000",D10000,10000);
 
+    displayDataSet("A1000");
 
     return 0;
 }
@@ -78,11 +81,26 @@ void orderArrayInsertionSort(string file, int *ar, int length)
     cout << "time elapsed:"<< elapsed<< " ms" << endl;
 }
 
-
 void generateArray(string file, int *ar, int length)
 {
     fillArray(ar,length);
     writeFile(file,ar,length);
     printArray(file + " GENERATED -> ", ar, length);
+}
 
+void displayDataSet(string file)
+{
+    cout<<"Printing dataset";
+    fstream newfile;
+    newfile.open(file+".csv", ios::in);
+    string numberString;
+    int i = 0;
+    if (newfile.is_open())
+    {
+      while(getline(newfile, numberString,','))
+      {
+         cout<<numberString;
+      }
+      newfile.close();
+    }
 }
