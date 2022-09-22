@@ -16,6 +16,7 @@ void orderArrayBubbleSort(string file,int *ar, int length);
 void orderArrayQuickSort(string file,int *ar, int length);
 void orderArrayInsertionSort(string file,int *ar, int length);
 void displayDataSet(string file);
+void sortArray(string file, string method, int *ar, int length);
 
 int main()
 {
