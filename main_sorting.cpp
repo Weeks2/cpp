@@ -20,13 +20,11 @@ void displayDataSet(string file);
 int main()
 {
     generateArray("A1000",A1000,1000);
-
     orderArrayBubbleSort("A1000",A1000,1000);
     orderArrayQuickSort("A1000",A1000,1000);
     orderArrayInsertionSort("A1000",A1000,1000);
 
     generateArray("B4000",B4000,4000);
-
     orderArrayBubbleSort("B4000",B4000,4000);
     orderArrayInsertionSort("B4000",B4000,4000);
     orderArrayQuickSort("B4000",B4000,4000);
@@ -37,13 +35,15 @@ int main()
     orderArrayInsertionSort("C8000",C8000,8000);
     orderArrayQuickSort("C8000",C8000,8000);
 
-
     generateArray("D10000",D10000,10000);
     orderArrayBubbleSort("D10000",D10000,10000);
     orderArrayQuickSort("D10000",D10000,10000);
     orderArrayInsertionSort("D10000",D10000,10000);
 
-    displayDataSet("A1000");
+    displayDataSet("A1000_time_bubblesort");
+    displayDataSet("A1000_time_quicksort");
+    displayDataSet("A1000_time_insertionsort");
+
 
     return 0;
 }
