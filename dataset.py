@@ -8,4 +8,6 @@ dataFrame = dataFrame.fillna(0);
 print(dataFrame)
 
 dataFrame.plot(); 
-plot.show(block=True);
+plot.xlabel("Sorted numbers");
+plot.ylabel("Elampsed time miliseconds");
+plot.show();
