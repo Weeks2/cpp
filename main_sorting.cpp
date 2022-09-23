@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <unistd.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -63,6 +64,7 @@ void generateArray(string file, int *ar, int length)
 
 void displayDataSet(string file)
 {
+    system("python3 dataset.py");
     cout<<"Printing dataset: "<<file<<endl;
     fstream newfile;
     newfile.open(file+".csv", ios::in);
