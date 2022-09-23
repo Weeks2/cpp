@@ -9,5 +9,5 @@ print(dataFrame)
 
 dataFrame.plot(); 
 plot.xlabel("Sorted numbers");
-plot.ylabel("Elampsed time miliseconds");
+plot.ylabel("Elapsed time miliseconds");
 plot.show();
