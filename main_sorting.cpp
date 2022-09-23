@@ -13,7 +13,7 @@ using namespace std;
 int A1000[1000],B4000[4000],C8000[8000],D10000[10000];
 
 void generateArray(string file,int *ar, int length);
-void displayDataSet(string file);
+void plotDataset();
 void sortArray(string file, string method, int *ar, int length);
 void process(string file, int *ar, int length);
 
@@ -26,17 +26,33 @@ int main()
     process("C8000",C8000,8000);
     process("D10000",D10000,10000);
 
-    displayDataSet("dataset");
+    plotDataset();
 
     return 0;
 }
 
-void process(string file, int *ar, int length) 
+void generateArray(string file, int *ar, int length)
 {
-    generateArray(file,ar,10000);
-    sortArray(file, "bubblesort",ar, length);
-    sortArray(file, "quicksort",ar, length);
-    sortArray(file, "insertionsort",ar, length);   
+    fillArray(ar,length);
+    writeFile(file,ar,length);
+    printArray(file + " GENERATED -> ", ar, length);
+}
+
+void plotDataset()
+{
+    system("python3 dataset.py");
+    fstream newfile;
+    newfile.open("dataset.csv", ios::in);
+    string numberString;
+    int i = 0;
+    if (newfile.is_open())
+    {
+      while(getline(newfile, numberString,'\n'))
+      {
+         cout<<numberString<<endl;
+      }
+      newfile.close();
+    }
 }
 
 void sortArray(string file, string method, int *ar, int length)
@@ -52,27 +68,10 @@ void sortArray(string file, string method, int *ar, int length)
     writeDataSetLine("dataset", method, chrono::duration_cast<chrono::milliseconds>(end - start).count(), length);
 }
 
-void generateArray(string file, int *ar, int length)
+void process(string file, int *ar, int length) 
 {
-    fillArray(ar,length);
-    writeFile(file,ar,length);
-    printArray(file + " GENERATED -> ", ar, length);
-}
-
-void displayDataSet(string file)
-{
-    system("python3 dataset.py");
-    cout<<"Printing dataset: "<<file<<endl;
-    fstream newfile;
-    newfile.open(file+".csv", ios::in);
-    string numberString;
-    int i = 0;
-    if (newfile.is_open())
-    {
-      while(getline(newfile, numberString,'\n'))
-      {
-         cout<<numberString<<endl;
-      }
-      newfile.close();
-    }
+    generateArray(file,ar,10000);
+    sortArray(file, "bubblesort",ar, length);
+    sortArray(file, "quicksort",ar, length);
+    sortArray(file, "insertionsort",ar, length);   
 }
