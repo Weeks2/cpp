@@ -1,0 +1,12 @@
+11,1000,bubblesort
+10,1000,quicksort
+8,1000,insertionsort
+46,4000,bubblesort
+47,4000,quicksort
+9,4000,insertionsort
+178,8000,bubblesort
+116,8000,quicksort
+7,8000,insertionsort
+255,10000,bubblesort
+176,10000,quicksort
+7,10000,insertionsort
