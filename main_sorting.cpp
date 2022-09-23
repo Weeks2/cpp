@@ -53,7 +53,7 @@ void sortArray(string file, string method, int *ar, int length)
     if(method=="insertionsort") { insertionSort(ar, length); }
     
     auto end = chrono::steady_clock::now();
-    writeDataSetLine(file + "_time_" + method, chrono::duration_cast<chrono::milliseconds>(end - start).count(), length);
+    writeDataSetLine("time_sort_dataset", method, chrono::duration_cast<chrono::milliseconds>(end - start).count(), length);
 }
 
 void generateArray(string file, int *ar, int length)
@@ -65,16 +65,16 @@ void generateArray(string file, int *ar, int length)
 
 void displayDataSet(string file)
 {
-    cout<<"Printing dataset"<<endl;
+    cout<<"Printing dataset: "<<file<<endl;
     fstream newfile;
     newfile.open(file+".csv", ios::in);
     string numberString;
     int i = 0;
     if (newfile.is_open())
     {
-      while(getline(newfile, numberString,','))
+      while(getline(newfile, numberString,'\n'))
       {
-         cout<<numberString;
+         cout<<numberString<<endl;
       }
       newfile.close();
     }
