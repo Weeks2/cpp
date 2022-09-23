@@ -28,7 +28,7 @@ int main()
     process("C8000",C8000,8000);
     process("D10000",D10000,10000);
 
-    displayDataSet("time_sort_dataset");
+    displayDataSet("dataset");
 
     return 0;
 }
@@ -51,7 +51,7 @@ void sortArray(string file, string method, int *ar, int length)
     if(method=="insertionsort") { insertionSort(ar, length); }
     
     auto end = chrono::steady_clock::now();
-    writeDataSetLine("time_sort_dataset", method, chrono::duration_cast<chrono::milliseconds>(end - start).count(), length);
+    writeDataSetLine("dataset", method, chrono::duration_cast<chrono::milliseconds>(end - start).count(), length);
 }
 
 void generateArray(string file, int *ar, int length)
