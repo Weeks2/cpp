@@ -28,9 +28,7 @@ int main()
     process("C8000",C8000,8000);
     process("D10000",D10000,10000);
 
-    displayDataSet("A1000_time_bubblesort");
-    displayDataSet("A1000_time_quicksort");
-    displayDataSet("A1000_time_insertionsort");
+    displayDataSet("time_sort_dataset");
 
     return 0;
 }
