@@ -87,12 +87,11 @@ void writeFile(string flag,int *ar, int length)
     }
 }
 
-void writeDataSetLine(string flag, float elapsed, int numbers)
+void writeDataSetLine(string flag, string method, float elapsed, int numbers)
 {
     fstream fout;
     fout.open(flag+".csv", ios::out | ios::app);
-    fout << elapsed <<","<<numbers<<"\n";
-
+    fout << elapsed <<","<<numbers<<","<<method<<"\n";
 }
 
 #endif // UTILSSORT_H_INCLUDED
