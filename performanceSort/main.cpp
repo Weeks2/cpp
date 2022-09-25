@@ -53,7 +53,7 @@ void sortArray(string file, string method, int *ar, int length)
 
 void process(string file, int *ar, int length) 
 {
-    generateArray(file,ar,10000);
+    generateArray(file,ar,length);
     sortArray(file, "bubblesort",ar, length);
     sortArray(file, "quicksort",ar, length);
     sortArray(file, "insertionsort",ar, length);   
