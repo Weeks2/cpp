@@ -77,5 +77,5 @@ void mergeSort(int *array, int const begin, int const end)
     mergeSort(array, mid + 1, end);
     merge(array, begin, mid, end);
 }
- 
+// mergeSort(arr, 0, arr_size - 1);
 #endif // MERGESORT_H_INCLUDED
