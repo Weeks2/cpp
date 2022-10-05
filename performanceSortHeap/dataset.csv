@@ -1,0 +1,12 @@
+1,1000,mergeSort
+0,1000,quicksort
+0,1000,heapSort
+1,4000,mergeSort
+0,4000,quicksort
+1,4000,heapSort
+2,8000,mergeSort
+1,8000,quicksort
+2,8000,heapSort
+3,10000,mergeSort
+1,10000,quicksort
+2,10000,heapSort
