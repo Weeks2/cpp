@@ -1,37 +1,30 @@
 #ifndef UTILS_H_INCLUDED
 #define UTILS_H_INCLUDED
 
-#include <string>
-#include <fstream>
-#include <sstream>
+#include <iostream>
+
 using namespace std;
 
-void stringToArray(string numbers, int *ar)
+
+
+void arrayByReference(int *ar, int x, int y)
 {
-    string T;    
-    stringstream X(numbers);     
-    int count = 0;
-    while (getline(X, T, ',')) {
-        ar[count] = stoi(T);
-        count++;    
-    }    
+  int xx = *(ar + 0 * y + 0);
+  cout << xx;
 }
 
-
-void readArray(string filename, int *ar, int length)
+int main() 
 {
-    fstream newfile;
-    newfile.open(filename+".csv", ios::in);
-    string numberString;
-    int i = 0;
-    if (newfile.is_open())
-    {
-      while(getline(newfile, numberString,'\n'))
-      {
-         cout<<numberString<<endl;
-      }
-      newfile.close();
-    }
+  int graph[7][7] = {{100, 1, 7, 6, 0, 0, 0},{1, 0, 9, 0, 0, 3, 0},
+                           {7, 9, 0, 0, 0, 0, 1}, 
+                           {6, 0, 0, 0, 2, 0, 0},
+                           {0, 0, 0, 2, 0, 0, 0}, 
+                           {0, 3, 0, 0, 0, 0, 3},
+                           {0, 0, 0, 0, 5, 3, 0}};
+  
+
+  arrayByReference((int*)graph,7,7);
+ 
 }
 
 #endif // UTILS_H_INCLUDED
