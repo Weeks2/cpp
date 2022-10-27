@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define size 7
+
 int minimumDistance(int distance[], bool visited[]) {
   int min = INT_MAX;
   int min_index = INT_MAX;
   for (int i = 0; i < size; i++) {
-    if (!visited[i] & amp; & distance[i] <= min) {
+    if (!visited[i] && distance[i] <= min) {
       min = distance[i];
       min_index = i;
     }
@@ -34,8 +35,7 @@ void dijkstra(int graph[size][size], int source) {
     visited[U] = true;
     for (int j = 0; j < size; j++) {
       int curr_distance = distance[U] + graph[U][j];
-      if (!visited[j] & amp; & graph[U][j] & amp; &
-          curr_distance < distance[j]) {
+      if (!visited[j] && graph[U][j] && curr_distance < distance[j]) {
         parent[j] = U;
         distance[j] = curr_distance;
       }
