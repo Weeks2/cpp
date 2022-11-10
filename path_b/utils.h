@@ -1,7 +1,6 @@
 #ifndef UTILS_H_INCLUDED
 #define UTILS_H_INCLUDED
 
-
 const int COUNT = 7; 
 
 #include <string>
