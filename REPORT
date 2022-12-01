@@ -1,0 +1,93 @@
+<pre>
+
+REPORT 
+ 1. A general explanation of the problem, expected input, and output. 
+ 
+Los gráficos son estructuras de datos dinámicas no lineales que se utilizan comúnmente en el análisis de redes, el diseño de circuitos, la estrategia de marketing, la cartografía, los mapas conceptuales, las matemáticas, la planificación de procesos y muchos campos del conocimiento. 
+
+En este proyecto proponemos una solución a un problema clásico de programación, en primer lugar, que tenemos un modelo de datos que representa los posibles caminos del punto A al punto B, que en sí mismo es un problema general para cualquier empresa que distribuye productos, y general costos reducciones, como UPS, DHL, FedEx y otras empresas de paquetería, ahorran 200 millones de dólares al año creando la mejor ruta para sus entregas.
+
+El problema es que el clima es variable, por lo que la mejor ruta puede variar dependiendo del clima. Evitar las zonas de riesgo reduce los costes de desplazamiento y, por tanto, el tiempo. 
+
+Para todos ellos se crea una estructura de datos en forma de árbol, donde cada punto de entrega se considera un nodo y una ruta representa una arista.
+
+Cada borde también tiene una longitud o precio, por lo que este tipo de problema al crear una representación. Se deben considerar los costos de tipo para que podamos ver escenarios de optimización o maximización. 
+
+Cabe señalar que además de poder realizar conexiones a rutas en carreteras, existe una representación matricial donde también se pueden representar sistemas relacionales y calcular cuál tiene mayor impacto en el modelado de rutas, como líneas de buses cruzando calles. ciudad Por entrada nos referimos a la información que obtenemos de la entrada, es decir, la ubicación y la ruta que se puede analizar. Tenemos una solución como salida, que es por cuales nodos debe pasar para llegar al nodo final, la mejor ruta.
+ 
+ 
+ 
+ 
+2. Part A - Explaining the data structures and functions required to approach the solution to the problem. 
+ 
+El concepto fundamental que hay que comprender es el puntero, Un puntero es una variable que almacena la dirección de memoria de un objeto. Los punteros se usan ampliamente en C y C++ para tres propósitos principales: 
+Asignar nuevos objetos a la Pila, Pasar funciones a otras funciones Iterar sobre los elementos de una matriz u otra estructura de datos. 
+
+Funciones Las funciones principales que necesitamos son Manipular un archivo csv: esta funcion lee un archivo de texto en formato csv y por medio de un puntero se puede ir leyendo linea a linea para asi construir un tipo de datos matriz. 
+
+Convertir Un archivo csv a un arreglo bidimencional esta funcion lee un string que representa la linea de el archivo csv y por medio de un split creamos un arreglo con la dimencion de la fila asi creamos una martriz de dos dimenciones donde se almacenara cada nodo con datos.
+
+Estructuras
+
+Crear el grafo 
+
+Esta funcion declara una estructura de datos llamada Edge, esta contiene un recurso para su posterior enlazamiendo con mas de un nodo.
+
+Recorrer el grafo por medio de un bucle anidado.
+
+Estructura de datos
+
+Arista
+Contiene valores enteros que representen origen destino y peso, el origen se refiere a de que nodo se conecta como fuente, y el destino hacia que nodo se apunta como destino. ademas de un coste numérico para representar el valor que se debe gastar para poder cruzar esa arista. 
+Grafo es la estructura de datos que representa un mapa de rutas utilizando valores para los Vertices y las Aristas, asi mismo contiene un Arista, Matriz de datos
+Representa las rutas en forma de arreglo donde cada ubicación i, j representan la posicion en la el grafo. 
+ 
+ 
+3. Part B - Explaining the algorithms that can be used to program the functions mentioned in Part A, and the techniques to improve the efficiency of these algorithms. 
+ 
+El algoritmo de Bellman Ford es un algoritmo de ruta más corta de fuente única. 
+
+Se utiliza para encontrar la distancia más corta de un vértice a todos los demás vértices en un gráfico ponderado. 
+Otros algoritmos para encontrar las rutas más cortas son el algoritmo de Dijkstra, etc. 
+Si el gráfico ponderado tiene valores de peso negativos, el algoritmo de Dijkstra no puede confirmar que da la respuesta correcta. 
+A diferencia del algoritmo de Dijkstra, el algoritmo de Bellman Ford garantiza la respuesta correcta incluso cuando el gráfico ponderado tiene valores de peso negativos. 
+
+Procedimiento
+
+Anotar todos los bordes
+Relaja todas las aristas y lo hace |V| – 1 veces, siendo |V| el número de vértices del grafo.
+Detección de ciclos negativos
+inicializamos todas las distancias mínimas a INFINITO.
+Actualizamos el paso anterior, aplicando las fórmulas. En este caso ponemos la distancia de los nodos que tienen accesos directos al vértice 1 y se la sumamos a la distancia mínima acumulada que hay hasta el vértice oportuno. Aquí esta distancia acumulada sería 0 para 1, debido a que sería la distancia a él mismo, e infinito para el resto porque no han sido analizados todavía.
+Al saber ya una distancia mínima acumulada desde los nodos 2 y 3 hasta 1, podemos actualizar las distancias mínimas de los nodos 4 y 5.
+En los pasos sucesivos, se van actualizando las distancias mínimas acumuladas (D) de los distintos vértices hasta 1, y se van utilizando en los pasos siguientes para optimizar el camino mínimo.
+El final del algoritmo se da cuando no hay ningún cambio de un paso a otro, es decir, cuando ya no se puede encontrar un camino más corto.
+
+Limitaciones
+No escala bien
+
+Los cambios en la topología de red no se reflejan rápidamente ya que las actualizaciones se distribuyen nodo por nodo.
+
+Contando hasta el infinito(si un fallo de enlace o nodo hace que un nodo sea inalcanzable desde un conjunto de otros nodos, éstos pueden estar siempre aumentando gradualmente sus cálculos de distancia a él, y mientras tanto puede haber bucles de enrutamiento)
+
+
+
+Mejoras
+
+
+
+En 1970 Yen describió una mejora del algoritmo Bellman-Ford para un grafo sin ciclos con peso negativo. 
+
+Esta mejora primero asigna un orden arbitrario lineal a todos los vértices y luego divide el conjunto de todas las aristas en uno o dos subconjuntos. 
+
+El primer subconjunto, Ef, contiene todas las aristas (vi,vj) tales que i < j; mientras que el segundo, Eb, contiene aristas (vi,vj) tales que i > j. 
+
+
+Cada vértice se visita en orden v1,v2,…,vn, relajando cada arista saliente de ese vértice en Ef. Cada vértice es, después, visitado en orden v|v|,v|v|,…,v1, relajando cada arista saliente de ese vértice en Eb. 
+
+
+La mejora de Yen reduce a la mitad, de manera efectiva, el número de ―pases‖ requeridos para la solución del camino más corto desde una única fuente.
+
+
+ 
+</pre>
